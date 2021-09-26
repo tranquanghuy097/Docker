@@ -39,4 +39,6 @@ class StudentAPITests(APITestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, self.reponse_ok)
-        self.assertEqual(response.json()[0]['name'], self.datalist[0]['name'])
+        for i in range(0, len(self.studentlist)):
+            self.assertEqual(response.json()[i]['name'],
+                             self.datalist[i]['name'])
