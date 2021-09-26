@@ -7,9 +7,10 @@ from rest_framework.generics import ListAPIView
 from .models import Student
 from .serializer import StudentSerializers
 
+
 class StudentListAPIView(ListAPIView):
     model = Student
-    serializer = StudentSerializers
+    serializer_class = StudentSerializers
 
     def get_queryset(self):
-        return Student.objects.all
+        return Student.objects.all()
